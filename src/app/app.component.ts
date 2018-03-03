@@ -9,8 +9,8 @@ import { Observable } from 'rxjs/Observable';
 })
 export class AppComponent {
   title = 'app';
-  items: Observable<any[]>;
+  messages$: Observable<any[]>;
   constructor(db: AngularFirestore) {
-    this.items = db.collection('messages').valueChanges();
+    this.messages$ = db.collection('messages').valueChanges();
   }
 }
