@@ -11,6 +11,6 @@ export class AppComponent {
   title = 'app';
   messages$: Observable<any[]>;
   constructor(db: AngularFirestore) {
-    this.messages$ = db.collection('messages').valueChanges();
+    this.messages$ = db.collection('messages', ref => ref.orderBy('timestamp')).valueChanges();
   }
 }
